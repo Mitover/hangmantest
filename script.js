@@ -86,6 +86,12 @@ function checkGameStatus() {
 
 // Перезапуск игры
 function restartGame() {
+    Telegram.WebApp.ready();
+    Telegram.WebApp.MainButton.setText('слово').show().onClick(function () {
+        const data = JSON.stringify({"word": selectedWord});
+        Telegram.WebApp.sendData(data);
+        Telegram.WebApp.close();
+    });
     initGame();
 }
 
