@@ -30,6 +30,13 @@ body {
     margin: 20px 0;
 }
 
+.themes button {
+    display: block; /* Сделать кнопки блочными */
+    margin-bottom: 10px; /* Добавить отступ между кнопками */
+    width: 100%; /* Занять всю доступную ширину (опционально) */
+    text-align: center; /* Центрировать текст внутри кнопки (если нужно) */
+  }
+
 .key {
     padding: 10px;
     font-size: 1.2em;
@@ -44,6 +51,7 @@ body {
     background-color: #4caf50;
     color: white;
     cursor: default;
+    pointer-events: none;
 }
 
 .key.incorrect {
@@ -51,6 +59,7 @@ body {
     color: white;
     cursor: default;
     text-decoration: line-through;
+    pointer-events: none;
 }
 
 #message {
