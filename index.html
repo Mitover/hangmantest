@@ -3,22 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <!-- <script src="https://telegram.org/js/telegram-web-app.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
     <title>Игра Виселица</title>
     <link rel="stylesheet" href="styles.css" >
 </head>
 <body>
+    <div class="themes">
+        <h2> Выберите тему: </h2>
+    </div>
+
     <div class="container">
         <h1>Виселица</h1>
         <div id="hangman-image">
             <img src="images/hangman-0.svg" alt="Виселица">
         </div>
-        <div id="word-display"></div>
+        <p id="word-display" style="white-space: pre-wrap;"></p>
+        <p id="prompt"> </p>
         <div id="keyboard"></div>
         <div id="message"></div>
-        <button id="restart-button" onclick="restartGame()">Начать заново</button>
+
+        <button id="restart-button" text-align="center" onclick="restartGame()">Начать заново</button>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
