@@ -2,6 +2,7 @@ let listWords = [];
 let selectedWord = "";
 let guessedWord = [];
 let attemptsLeft = 7;
+let isWin = false
 const alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
 let wordsJson = {};
 let choiceWord = "";
@@ -192,10 +193,12 @@ function CreateButtonsTheme(){
       });
 }
 //Запуск игры при загрузке страницы
-// document.addEventListener("DOMContentLoaded", initGame);
-// Telegram.WebApp.ready();
-// Telegram.WebApp.MainButton.setText('слово').show().onClick(function () {
-//     const data = JSON.stringify({"word": selectedWord});
-//     Telegram.WebApp.sendData(data);
-//     Telegram.WebApp.close();
-// });
+
+//document.addEventListener("DOMContentLoaded", initGame);
+
+Telegram.WebApp.ready();
+Telegram.WebApp.MainButton.setText('слово').show().onClick(function () {
+    const data = JSON.stringify({"word": selectedWord, "isWin":isWin, "attempt": attempt});
+    Telegram.WebApp.sendData(data);
+    Telegram.WebApp.close();
+});
