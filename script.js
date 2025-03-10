@@ -171,9 +171,13 @@ function checkGameStatus() {
     if (guessedWord.join("") === selectedWord) {
         message.textContent = "Поздравляем! Вы выиграли!";
         buttonRestart.style.display = "inline-block";
+        Telegram.WebApp.sendData('Привет из веб-приложения!');
+
     } else if (attemptsLeft === 0) {
         message.textContent = `Игра окончена. Загаданное слово: ${selectedWord}`;
         buttonRestart.style.display = "inline-block";
+        Telegram.WebApp.sendData('Привет из веб-приложения!');
+        
     }
 }
 
