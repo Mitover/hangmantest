@@ -217,7 +217,8 @@ function CreateButtonsTheme(){
 
 function SendDataToTelegram(){
     Telegram.WebApp.ready();
-    const data = JSON.stringify({"word": selectedWord, "isWin":isWin, "attempt": attempt});
+    data = JSON.stringify({"word": selectedWord, "isWin":isWin, "attempt": attempt});
+    Telegram.WebApp.sendData("привет, давай работай");
     Telegram.WebApp.sendData(data);
     Telegram.WebApp.close();
 }
