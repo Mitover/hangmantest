@@ -172,15 +172,22 @@ function checkGameStatus() {
         message.textContent = "Поздравляем! Вы выиграли!";
         buttonRestart.style.display = "inline-block";
 
-        SendDataToTelegram();
+        //SendDataToTelegram();
         // Telegram.WebApp.ready();
         // Telegram.WebApp.sendData('Привет из веб-приложения!');
-
-    } else if (attemptsLeft === 0) {
+        Telegram.WebApp.ready();
+        const data = JSON.stringify({"word": selectedWord, "isWin":isWin, "attempt": attempt});
+        Telegram.WebApp.sendData(data);
+    } 
+    else if (attemptsLeft === 0) {
         message.textContent = `Игра окончена. Загаданное слово: ${selectedWord}`;
         buttonRestart.style.display = "inline-block";
-        SendDataToTelegram();
+        //SendDataToTelegram();
         
+        Telegram.WebApp.ready();
+        const data = JSON.stringify({"word": selectedWord, "isWin":isWin, "attempt": attempt});
+        Telegram.WebApp.sendData(data);
+        Telegram.WebApp.close();
     }
 }
 
