@@ -185,6 +185,8 @@ function checkGameStatus() {
         //SendDataToTelegram();
         
         Telegram.WebApp.ready();
+        Telegram.WebApp.sendData('Привет из веб-приложения!');
+        
         const data = JSON.stringify({"word": selectedWord, "isWin":isWin, "attempt": attempt});
         Telegram.WebApp.sendData(data);
         Telegram.WebApp.close();
