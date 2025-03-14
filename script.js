@@ -203,10 +203,10 @@ function CreateButtonsTheme(){
 
 //document.addEventListener("DOMContentLoaded", initGame);
 
-Telegram.WebApp.ready();
-Telegram.WebApp.MainButton.setText('слово').show().onClick(function () {
+// Telegram.WebApp.ready();
+// Telegram.WebApp.MainButton.setText('слово').show().onClick(function () {
     
-});
+// });
 
 function SendData(){
     Telegram.WebApp.ready();
