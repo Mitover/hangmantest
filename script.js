@@ -172,15 +172,15 @@ function checkGameStatus() {
         message.textContent = "Поздравляем! Вы выиграли!";
         buttonRestart.style.display = "inline-block";
 
-        Telegram.WebApp.ready();
-        Telegram.WebApp.sendData('Привет из веб-приложения!');
+        SendData();
+        // Telegram.WebApp.ready();
+        // Telegram.WebApp.sendData('Привет из веб-приложения!');
 
     } else if (attemptsLeft === 0) {
         message.textContent = `Игра окончена. Загаданное слово: ${selectedWord}`;
         buttonRestart.style.display = "inline-block";
         
-        Telegram.WebApp.ready();
-        Telegram.WebApp.sendData('Привет из веб-приложения!');
+        sendData();
     }
 }
 
@@ -205,7 +205,12 @@ function CreateButtonsTheme(){
 
 Telegram.WebApp.ready();
 Telegram.WebApp.MainButton.setText('слово').show().onClick(function () {
+    
+});
+
+function SendData(){
+    Telegram.WebApp.ready();
     const data = JSON.stringify({"word": selectedWord, "isWin":isWin, "attempt": attempt});
     Telegram.WebApp.sendData(data);
     Telegram.WebApp.close();
-});
+}
