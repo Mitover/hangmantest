@@ -7,6 +7,8 @@ const alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэ
 let wordsJson = {};
 let choiceWord = "";
 let hint2 = "";
+let isGift = false
+let random = 0
 
 
 let divElements = document.querySelectorAll('.container');
@@ -71,6 +73,8 @@ function initGame() {
     attemptsLeft = 7;
     guessedWord = []
     selectedWord = "";
+    random = getRandomProbability()
+    console.log(random)
 }
 
 // Обновление отображения слова
@@ -84,7 +88,16 @@ function choiceTheme(theme){
     
     listWords = Object.keys(wordsJson[theme]) ;
     selectedWord =  listWords[Math.floor(Math.random() * listWords.length)].toLowerCase();
-
+    console.log(Object.keys(wordsJson));
+    
+    if(random < 5)
+    {
+        isGift = true
+        listWords = Object.keys(wordsJson["Подарок"]) ;
+        selectedWord =  listWords[Math.floor(Math.random() * listWords.length)].toLowerCase(); 
+        theme = "Подарок"
+    }
+    
     for (let i = 0; i < selectedWord.length; i++) 
     {
         if (!(selectedWord[i] == ' ' ||  selectedWord[i] == '-'))
@@ -172,23 +185,26 @@ function checkGameStatus() {
         message.textContent = "Поздравляем! Вы выиграли!";
         buttonRestart.style.display = "inline-block";
 
-        //SendDataToTelegram();
         Telegram.WebApp.ready();
-        // Telegram.WebApp.sendData('Привет из веб-приложения!');
-
-        data = JSON.stringify({"word": selectedWord, "isWin":isWin, "attempt": attempt});
+        data = "word:" + selectedWord + " " + "isWin:" + String(isWin) + " " + "attempt:" + String(attempt);
+        if(isGift){
+            data += " isGift" 
+        }
         Telegram.WebApp.sendData(data);
+
+        // data = JSON.stringify({"word": selectedWord, "isWin":isWin, "attempt": attempt});
+        // Telegram.WebApp.sendData(data);
     } 
     else if (attemptsLeft === 0) {
         message.textContent = `Игра окончена. Загаданное слово: ${selectedWord}`;
         buttonRestart.style.display = "inline-block";
-        //SendDataToTelegram();
         
         Telegram.WebApp.ready();
-        Telegram.WebApp.sendData('Привет из веб-приложения!');
-        
-        const data = JSON.stringify({"word": selectedWord, "isWin":isWin, "attempt": attempt});
+        data = "word:" + selectedWord + " " + "isWin:" + isWin;
         Telegram.WebApp.sendData(data);
+        
+        // const data = JSON.stringify({"word": selectedWord, "isWin":isWin, "attempt": attempt});
+        // Telegram.WebApp.sendData(data);
         Telegram.WebApp.close();
     }
 }
@@ -201,13 +217,25 @@ function restartGame() {
 function CreateButtonsTheme(){
     Object.keys(wordsJson).forEach((key) => {
         //console.log(key + " " +  wordsJson.);
-        const button = document.createElement("button");
-        button.textContent = key
-        button.classList.add("theme");
-        button.addEventListener("click", () => choiceTheme(key));
-        divTheme.appendChild(button);
+        if (key != "Подарок"){
+            const button = document.createElement("button");
+            button.textContent = key
+            button.classList.add("theme");
+            button.addEventListener("click", () => choiceTheme(key));
+            divTheme.appendChild(button);
+        }
       });
+
 }
+
+function getRandomProbability() {
+    // Генерируем случайное число от 0 до 100
+    const randomValue = Math.random() * 100;
+    // Округляем до двух знаков после запятой
+    const probability = Math.floor(randomValue * 100) / 100;
+    return probability;
+}
+
 //Запуск игры при загрузке страницы
 
 //document.addEventListener("DOMContentLoaded", initGame);
