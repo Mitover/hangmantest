@@ -187,7 +187,6 @@ function checkGameStatus() {
 
         
         data = "word:" + selectedWord + " " + "isWin:" + String(isWin) + " " + "attempt:" + String(attemptsLeft);
-        console.log(data);
         Telegram.WebApp.ready();
         if(isGift){
             data += " isGift" 
