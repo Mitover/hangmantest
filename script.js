@@ -186,7 +186,7 @@ function checkGameStatus() {
         buttonRestart.style.display = "inline-block";
 
         
-        data = "word:" + selectedWord + " " + "isWin:" + String(isWin) + " " + "attempt:" + String(attemptsLeft);
+        data = "word:" + selectedWord + " isWin:" + String(isWin) + " attempt:" + String(attemptsLeft);
         Telegram.WebApp.ready();
         if(isGift){
             data += " isGift" 
