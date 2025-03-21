@@ -90,7 +90,7 @@ function choiceTheme(theme){
     selectedWord =  listWords[Math.floor(Math.random() * listWords.length)].toLowerCase();
     console.log(Object.keys(wordsJson));
     
-    if(random < 5)
+    if(random < 100)
     {
         isGift = true
         listWords = Object.keys(wordsJson["Подарок"]) ;
