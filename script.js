@@ -185,8 +185,10 @@ function checkGameStatus() {
         message.textContent = "Поздравляем! Вы выиграли!";
         buttonRestart.style.display = "inline-block";
 
+        
+        data = "word:" + selectedWord + " " + "isWin:" + String(isWin) + " " + "attempt:" + String(attemptsLeft);
+        console.log(data);
         Telegram.WebApp.ready();
-        data = "word:" + selectedWord + " " + "isWin:" + String(isWin) + " " + "attempt:" + String(attempt);
         if(isGift){
             data += " isGift" 
         }
