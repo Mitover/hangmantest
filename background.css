@@ -1,0 +1,187 @@
+body {
+    background-color: #DCDCDC;
+  }
+  
+  div[class^=bubble-] {
+    height: 1px;
+    width: 1px;
+    position: absolute;
+    background-color: rgba(0, 141, 210, 0.3);
+    border-radius: 50%;
+    transform: translateX(-50%);
+  }
+  div[class^=bubble-]:after {
+    content: "";
+    position: absolute;
+    height: 85%;
+    width: 85%;
+    border-top: 1px solid rgba(255, 255, 255, 0.63);
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0) rotateZ(-45deg);
+  }
+  
+  .bubble-1 {
+    bottom: 10px;
+    left: 94%;
+    -webkit-animation: bubble-movement 4s infinite ease-in -2.29s;
+            animation: bubble-movement 4s infinite ease-in -2.29s;
+  }
+  
+  .bubble-2 {
+    bottom: 4px;
+    left: 49%;
+    -webkit-animation: bubble-movement 4s infinite ease-in -1.01s;
+            animation: bubble-movement 4s infinite ease-in -1.01s;
+  }
+  
+  .bubble-3 {
+    bottom: 7px;
+    left: 12%;
+    -webkit-animation: bubble-movement 4s infinite ease-in -1.03s;
+            animation: bubble-movement 4s infinite ease-in -1.03s;
+  }
+  
+  .bubble-4 {
+    bottom: 5px;
+    left: 38%;
+    -webkit-animation: bubble-movement 4s infinite ease-in -2.2s;
+            animation: bubble-movement 4s infinite ease-in -2.2s;
+  }
+  
+  .bubble-5 {
+    bottom: 4px;
+    left: 53%;
+    -webkit-animation: bubble-movement 4s infinite ease-in -0.21s;
+            animation: bubble-movement 4s infinite ease-in -0.21s;
+  }
+  
+  .bubble-6 {
+    bottom: 8px;
+    left: 42%;
+    -webkit-animation: bubble-movement 4s infinite ease-in -1.37s;
+            animation: bubble-movement 4s infinite ease-in -1.37s;
+  }
+  
+  .bubble-7 {
+    bottom: 4px;
+    left: 62%;
+    -webkit-animation: bubble-movement 4s infinite ease-in -2.44s;
+            animation: bubble-movement 4s infinite ease-in -2.44s;
+  }
+  
+  .bubble-8 {
+    bottom: 9px;
+    left: 14%;
+    -webkit-animation: bubble-movement 4s infinite ease-in -2.7s;
+            animation: bubble-movement 4s infinite ease-in -2.7s;
+  }
+  
+  .bubble-9 {
+    bottom: 11px;
+    left: 100%;
+    -webkit-animation: bubble-movement 4s infinite ease-in -0.4s;
+            animation: bubble-movement 4s infinite ease-in -0.4s;
+  }
+  
+  .bubble-10 {
+    bottom: 4px;
+    left: 32%;
+    -webkit-animation: bubble-movement 4s infinite ease-in -2.23s;
+            animation: bubble-movement 4s infinite ease-in -2.23s;
+  }
+  
+  .bubble-11 {
+    bottom: 3px;
+    left: 35%;
+    -webkit-animation: bubble-movement 3s infinite ease-in -2.58s;
+            animation: bubble-movement 3s infinite ease-in -2.58s;
+  }
+  
+  .bubble-12 {
+    bottom: 11px;
+    left: 2%;
+    -webkit-animation: bubble-movement 3s infinite ease-in -2.43s;
+            animation: bubble-movement 3s infinite ease-in -2.43s;
+  }
+  
+  .bubble-13 {
+    bottom: 2px;
+    left: 29%;
+    -webkit-animation: bubble-movement 3s infinite ease-in -1.87s;
+            animation: bubble-movement 3s infinite ease-in -1.87s;
+  }
+  
+  .bubble-14 {
+    bottom: 8px;
+    left: 99%;
+    -webkit-animation: bubble-movement 3s infinite ease-in -1.8s;
+            animation: bubble-movement 3s infinite ease-in -1.8s;
+  }
+  
+  .bubble-15 {
+    bottom: 9px;
+    left: 68%;
+    -webkit-animation: bubble-movement 3s infinite ease-in -0.17s;
+            animation: bubble-movement 3s infinite ease-in -0.17s;
+  }
+  
+  .bubble-16 {
+    bottom: 4px;
+    left: 100%;
+    -webkit-animation: bubble-movement 3s infinite ease-in -0.93s;
+            animation: bubble-movement 3s infinite ease-in -0.93s;
+  }
+  
+  .bubble-17 {
+    bottom: 5px;
+    left: 77%;
+    -webkit-animation: bubble-movement 3s infinite ease-in -1.78s;
+            animation: bubble-movement 3s infinite ease-in -1.78s;
+  }
+  
+  .bubble-18 {
+    bottom: 5px;
+    left: 70%;
+    -webkit-animation: bubble-movement 3s infinite ease-in -2.65s;
+            animation: bubble-movement 3s infinite ease-in -2.65s;
+  }
+  
+  .bubble-19 {
+    bottom: 7px;
+    left: 37%;
+    -webkit-animation: bubble-movement 3s infinite ease-in -0.25s;
+            animation: bubble-movement 3s infinite ease-in -0.25s;
+  }
+  
+  .bubble-20 {
+    bottom: 4px;
+    left: 35%;
+    -webkit-animation: bubble-movement 3s infinite ease-in -0.88s;
+            animation: bubble-movement 3s infinite ease-in -0.88s;
+  }
+  @-webkit-keyframes bubble-movement {
+    0% {
+      transform: translate3d(-50%, 0, 0);
+      height: 1px;
+      width: 1px;
+    }
+    100% {
+      transform: translate3d(-50%, -500px, 0);
+      height: 75px;
+      width: 75px;
+    }
+  }
+  @keyframes bubble-movement {
+    0% {
+      transform: translate3d(-50%, 0, 0);
+      height: 1px;
+      width: 1px;
+    }
+    100% {
+      transform: translate3d(-50%, -500px, 0);
+      height: 75px;
+      width: 75px;
+    }
+}

@@ -28,7 +28,7 @@ const wordDisplay = document.getElementById("word-display");
 const prompt_P = document.getElementById("prompt")
 const keyboard = document.getElementById("keyboard");
 const message = document.getElementById("message");
-const hangmanImage = document.getElementById("hangman-image");
+// const hangmanImage = document.getElementById("hangman-image");
 
 function HideContainter() {
     divElements.forEach(e => e.style.display = 'none');
@@ -121,7 +121,7 @@ function choiceTheme(theme){
     createKeyboard();
     ShowContainter();
     updateWordDisplay();
-    updateHangmanImage();
+    //updateHangmanImage();
 }
 
 function capitalizeFirstLetter(val) {
@@ -170,14 +170,14 @@ function handleGuess(letter) {
     });
 
     updateWordDisplay();
-    updateHangmanImage();
+    //updateHangmanImage();
     checkGameStatus();
 }
 
 // Обновление картинки виселицы
-function updateHangmanImage() {
-    hangmanImage.innerHTML = `<img src="images/hangman-${7 - attemptsLeft}.svg" alt="Виселица">`;
-}
+// function updateHangmanImage() {
+//     hangmanImage.innerHTML = `<img src="images/hangman-${7 - attemptsLeft}.svg" alt="Виселица">`;
+// }
 
 // Проверка статуса игры
 function checkGameStatus() {
