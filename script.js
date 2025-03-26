@@ -134,9 +134,27 @@ function createKeyboard() {
     for (let letter of alphabet) {
         const button = document.createElement("button");
         button.textContent = letter;
-        button.classList.add("key");
+        button.classList.add("bubbly-button");
         button.addEventListener("click", () => handleGuess(letter));
         keyboard.appendChild(button);
+
+        var animateButton = function(e) {
+
+            e.preventDefault;
+            //reset animation
+            e.target.classList.remove('animate');
+            
+            e.target.classList.add('animate');
+            setTimeout(function(){
+              e.target.classList.remove('animate');
+            },700);
+          };
+          
+          var bubblyButtons = document.getElementsByClassName("bubbly-button");
+          
+          for (var i = 0; i < bubblyButtons.length; i++) {
+            bubblyButtons[i].addEventListener('click', animateButton, false);
+          }
     }
 }
 
@@ -218,17 +236,51 @@ function restartGame() {
 function CreateButtonsTheme(){
     Object.keys(wordsJson).forEach((key) => {
         //console.log(key + " " +  wordsJson.);
-        if (key != "Подарок"){
-            const button = document.createElement("button");
-            button.textContent = key
-            button.classList.add("theme");
-            button.addEventListener("click", () => choiceTheme(key));
-            divTheme.appendChild(button);
+        // if (key != "Подарок"){
+        //     const button = document.createElement("button");
+        //     button.textContent = key
+        //     button.classList.add("theme");
+        //     button.addEventListener("click", () => choiceTheme(key));
+        //     divTheme.appendChild(button);
+        // }
+        if(key != "Подарок"){
+            newButton = createBlobButton(key);
+            newButton.addEventListener("click", () => choiceTheme(key));
+            divTheme.appendChild(newButton)
         }
       });
-
 }
 
+function createBlobButton(text) {
+    // Создаем основную кнопку
+    const button = document.createElement('button');
+    button.className = 'blob-btn'; // Добавляем класс для стилей
+  
+    // Добавляем текст кнопки
+    button.textContent = text;
+  
+    // Создаем внутренний контейнер
+    const inner = document.createElement('span');
+    inner.className = 'blob-btn__inner';
+  
+    // Создаем контейнер для капель
+    const blobs = document.createElement('span');
+    blobs.className = 'blob-btn__blobs';
+  
+    // Создаем 4 капли
+    for (let i = 0; i < 4; i++) {
+      const blob = document.createElement('span');
+      blob.className = 'blob-btn__blob';
+      blobs.appendChild(blob);
+    }
+  
+    // Собираем структуру
+    inner.appendChild(blobs);
+    button.appendChild(inner);
+  
+    return button;
+  }
+  
 function getRandomProbability() {
     // Генерируем случайное число от 0 до 100
     const randomValue = Math.random() * 100;

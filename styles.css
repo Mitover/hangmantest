@@ -31,10 +31,12 @@ body {
 }
 
 .themes button {
-    display: block; /* Сделать кнопки блочными */
-    margin-bottom: 10px; /* Добавить отступ между кнопками */
-    width: 100%; /* Занять всю доступную ширину (опционально) */
-    text-align: center; /* Центрировать текст внутри кнопки (если нужно) */
+    display: block;
+    margin-bottom: 10px; 
+    width: 100%; 
+    text-align: center; 
+    margin-top: 10px;
+    border-radius:30px;
   }
 
 .key {
