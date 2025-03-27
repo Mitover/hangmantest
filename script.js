@@ -204,6 +204,7 @@ function checkGameStatus() {
     if (guessedWord.join("") === selectedWord) {
         message.textContent = "Поздравляем! Вы выиграли!";
         buttonRestart.style.display = "inline-block";
+        isWin = true
 
         money = attemptsLeft * 50;
         data = "theme:" + _choiceTheme + " word:" + selectedWord + " isWin:" + String(isWin) + " attempt:" + String(attemptsLeft);
