@@ -9,6 +9,7 @@ let choiceWord = "";
 let hint2 = "";
 let isGift = false
 let random = 0
+let _choiceTheme = ""
 
 
 let divElements = document.querySelectorAll('.container');
@@ -86,6 +87,7 @@ function updateWordDisplay() {
 // guessedWord = Array(selectedWord.length).fill("_");
 function choiceTheme(theme){
     
+    _choiceTheme = theme
     listWords = Object.keys(wordsJson[theme]) ;
     selectedWord =  listWords[Math.floor(Math.random() * listWords.length)].toLowerCase();
     console.log(Object.keys(wordsJson));
@@ -95,7 +97,7 @@ function choiceTheme(theme){
         isGift = true
         listWords = Object.keys(wordsJson["Подарок"]) ;
         selectedWord =  listWords[Math.floor(Math.random() * listWords.length)].toLowerCase(); 
-        theme = "Подарок"
+        _choiceTheme = "Подарок"
     }
     
     for (let i = 0; i < selectedWord.length; i++) 
@@ -204,7 +206,7 @@ function checkGameStatus() {
         buttonRestart.style.display = "inline-block";
 
         money = attemptsLeft * 50;
-        data = "theme:" + theme + " word:" + selectedWord + " isWin:" + String(isWin) + " attempt:" + String(attemptsLeft);
+        data = "theme:" + _choiceTheme + " word:" + selectedWord + " isWin:" + String(isWin) + " attempt:" + String(attemptsLeft);
         Telegram.WebApp.ready();
         if(isGift){
             data += " isGift:" + String(money)
