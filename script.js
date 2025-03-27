@@ -176,7 +176,7 @@ function handleGuess(letter) {
     }
 
     // Обновляем состояние кнопок
-    const buttons = document.querySelectorAll('.key');
+    const buttons = document.querySelectorAll('.bubbly-button');
     buttons.forEach(button => {
         if (button.textContent === letter) {
             if (selectedWord.includes(letter)) {
