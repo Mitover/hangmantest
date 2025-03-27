@@ -21,6 +21,7 @@ let divTheme = document.querySelector(".themes")
 let buttonRestart = document.getElementById("restart-button")
 buttonRestart.style.display = "none";
 
+let h3 = document.querySelector("h3")
 
 HideContainter();
 
@@ -75,12 +76,14 @@ function initGame() {
     guessedWord = []
     selectedWord = "";
     random = getRandomProbability()
+    h3.textContent = "Осталось попыток: " + attemptsLeft;
     console.log(random)
 }
 
 // Обновление отображения слова
 function updateWordDisplay() {
     wordDisplay.textContent = guessedWord.join(" ");
+
     console.log(guessedWord.join("  "));
 }
 
@@ -173,6 +176,7 @@ function handleGuess(letter) {
         }
     } else {
         attemptsLeft--;
+        h3.textContent = "Осталось попыток: " + attemptsLeft;
         if (attemptsLeft == 2)
             prompt_P.textContent = hint2;
     }
